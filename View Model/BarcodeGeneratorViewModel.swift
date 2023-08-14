@@ -16,7 +16,6 @@ class BarcodeGeneratorViewModel: ObservableObject {
     
     @Published var formModel = FormModel()
     
-    
     @Published var isSavedPopupShown: Bool = false {
         didSet {
             if isSavedPopupShown {

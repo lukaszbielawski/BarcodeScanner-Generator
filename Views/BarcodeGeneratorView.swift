@@ -11,7 +11,10 @@ struct BarcodeGeneratorView: View {
     
     var type: BarcodeType
     @StateObject var vm = BarcodeGeneratorViewModel()
+
     @Environment(\.dismiss) var dismiss
+    
+    
     
     var body: some View {
         ZStack(alignment: .top) {

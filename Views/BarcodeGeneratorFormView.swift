@@ -11,6 +11,13 @@ struct BarcodeGeneratorFormView: View {
     
     var type: BarcodeType
     @ObservedObject var vm: BarcodeGeneratorViewModel
+    @FocusState var focusState: Field?
+    
+    enum Field: Hashable {
+        case message
+        case other
+    }
+ 
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,6 +25,7 @@ struct BarcodeGeneratorFormView: View {
                 FormFieldView {
                     TextField("Message", text: $vm.formModel.message)
                         .autocorrectionDisabled(true)
+                        .focused($focusState, equals: .message)
                 }
             } header: {
                 FieldHeaderTextView(text: "\(type.rawValue) settings")
@@ -35,7 +43,7 @@ struct BarcodeGeneratorFormView: View {
                     } else {
                         Slider(value: $vm.formModel.barcodeHeight, in: 5.0...1000.0, step: 5.0)
                     }
-                }
+                }.focused($focusState, equals: .other)
             } header: {
                 FieldHeaderTextView(text: {
                     switch type {
@@ -78,12 +86,15 @@ struct BarcodeGeneratorFormView: View {
             }.padding(.bottom)
         }.background(Color(uiColor: .formColor))
             .onAppear {
+                self.focusState = .message
                 vm.formModel.correctionLevel = type == .aztec ? 5.0 : 0.0
             }
     }
 }
 
 private extension BarcodeGeneratorFormView {
+   
+    
     struct FieldBackgroundView: View {
         var body: some View {
             RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
