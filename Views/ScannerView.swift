@@ -31,7 +31,7 @@ struct ScannerView: View {
             VStack {
                 TopPopupView(isTriggered: $isPopupShown, text: "Copied", systemImage: "doc.on.clipboard.fill", color: .accentColor)
                 Spacer()
-                MetadataTextContentView() {
+                BarcodeContentView() {
                     
                     if scanResult.text != "No pattern detected" {
                         

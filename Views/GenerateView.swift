@@ -26,7 +26,6 @@ struct GenerateView: View {
                             NavigationLink(destination: BarcodeGeneratorView(type: item)) {
                                 barcodeImage(content: item.getLogo)
                             }
-                            
                         }
                         .navigationTitle("Generate")
                 }
@@ -58,7 +57,7 @@ private extension GenerateView {
     
 
 
-struct EncoderView_Previews: PreviewProvider {
+struct GenerateView_Previews: PreviewProvider {
     static var previews: some View {
         GenerateView()
     }

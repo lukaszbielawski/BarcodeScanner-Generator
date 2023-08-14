@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MetadataTextContentView: View {
+struct BarcodeContentView: View {
     @EnvironmentObject var scanResult: ScanResult
     
     var didTap: () -> Void
@@ -26,9 +26,9 @@ struct MetadataTextContentView: View {
     }
 }
 
-struct MetadataTextContentView_Previews: PreviewProvider {
+struct BarcodeContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MetadataTextContentView {
+        BarcodeContentView {
             
         } 
         .environmentObject(ScanResult())

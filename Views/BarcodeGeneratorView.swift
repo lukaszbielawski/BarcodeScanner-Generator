@@ -11,6 +11,7 @@ struct BarcodeGeneratorView: View {
     
     var type: BarcodeType
     @StateObject var vm = BarcodeGeneratorViewModel()
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -57,6 +58,14 @@ struct BarcodeGeneratorView: View {
             .background(Color(uiColor: .formColor))
             .tint(Color(uiColor: .accentColor))
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {dismiss()}) {
+            HStack {
+                Image(systemName: "chevron.left")
+                Text("Back")
+            }
+//            Label("Back", systemImage: "chevron.left")
+        })
     }
 }
 
