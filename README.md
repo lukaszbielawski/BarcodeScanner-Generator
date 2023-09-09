@@ -29,7 +29,7 @@ This is a simple iOS app built using SwiftUI and AVFoundation that allows users 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/barcode-scanner-generator-app.git
+git clone https://github.com/lukaszbielawski/BarcodeScanner-Generator
 ```
 
 2. Open the project in Xcode.
